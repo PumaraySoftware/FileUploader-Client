@@ -1,0 +1,93 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.pumaray.fileuploader.client</groupId>
+	<artifactId>file-uploader-client-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>file-uploader-client-model</module>
+		
+	</modules>
+
+	<properties>
+		<version.jpa>2.2</version.jpa>
+		<version.jaxb>2.3.0</version.jaxb>
+		<version.slf4j>1.7.25</version.slf4j>
+		<version.junit>4.12</version.junit>
+		<version.jersey>2.26</version.jersey>
+
+		<version.plugin.compiler>3.7.0</version.plugin.compiler>
+		<version.plugin.failsafe>2.20.1</version.plugin.failsafe>
+
+		<version.java>1.8</version.java>
+
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>fileuploader.model</groupId>
+				<artifactId>FileUploader-model</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.xml.bind</groupId>
+				<artifactId>jaxb-api</artifactId>
+				<version>${version.jaxb}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.jersey.core</groupId>
+				<artifactId>jersey-client</artifactId>
+				<version>${version.jersey}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.jersey.inject</groupId>
+				<artifactId>jersey-hk2</artifactId>
+				<version>${version.jersey}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.jersey.media</groupId>
+				<artifactId>jersey-media-json-jackson</artifactId>
+				<version>${version.jersey}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>javax.persistence-api</artifactId>
+				<version>${version.jpa}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${version.slf4j}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>${version.slf4j}</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${version.junit}</version>
+				<scope>test</scope>
+			</dependency>
+
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${version.plugin.compiler}</version>
+				<configuration>
+					<source>${version.java}</source>
+					<target>${version.java}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
